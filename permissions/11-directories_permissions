@@ -1,2 +1,2 @@
 #!/bin/bash
-chmoo a+X*
+chmod a+X *
