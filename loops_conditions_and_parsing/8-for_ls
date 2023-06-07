@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#This is a comment
+for file in *; do
+    if [ -f "$file" ] && [[ "$file" != .* ]]; then
+        filename=${file#*-}
+        echo "$filename"
+    fi
+done
