@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #This is a comment
-
 hour=0
 minute=1
+count=1
 
-while [ $hour -lt 13 ] && [ $minute -lt 60 ]
+while [ $count -le 70 ]
 do
     printf "%02d:%02d\n" $hour $minute
     minute=$((minute+1))
@@ -13,4 +13,5 @@ do
         hour=$((hour+1))
         minute=0
     fi
-done | head -n 70
+    count=$((count+1))
+done
