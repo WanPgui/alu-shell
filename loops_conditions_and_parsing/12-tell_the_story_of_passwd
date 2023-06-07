@@ -2,8 +2,11 @@
 #This is a comment
 filename="/etc/passwd"
 
-while IFS=':' read -r username _ uid _ _ home _; do
-    echo "Username: $username"
-    echo "User ID: $uid"
-    echo "Home Directory: $home"
+while IFS=':' read -r username _ uid gid _ home shell; do
+    read -r _ _ _ gecos _ < <(getent passwd "$username")
+    password=$(sudo grep -E "^$username:" /etc/shadow | cut -d':' -f2)
+
+    echo "The user $username is part of the $gid gang, lives in $home and rides $shell."
+    echo "User $uid's place is protected by the passcode $password, more info about the user here: $gecos"
+    echo
 done < "$filename"
