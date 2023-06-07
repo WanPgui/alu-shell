@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 #This is a comment
 hour=0
-minute=1
+minute=0
 count=1
 
 while [ $count -le 70 ]
 do
-    printf "%02d:%02d\n" $hour $minute
+    if [ $minute -eq 0 ]
+    then
+        echo "Hour: $hour"
+    fi
+    echo $minute
+
     minute=$((minute+1))
     if [ $minute -eq 60 ]
     then
