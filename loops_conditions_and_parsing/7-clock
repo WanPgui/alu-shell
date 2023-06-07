@@ -10,7 +10,8 @@ do
     then
         echo "Hour: $hour"
     fi
-    echo $minute
+
+    echo $((minute % 60))
 
     minute=$((minute+1))
     if [ $minute -eq 60 ]
